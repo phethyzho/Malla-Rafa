@@ -141,6 +141,7 @@ function updateProgress() {
   ).toFixed(1);
 }
 unlockCourses();
+
 function saveProgress() {
   const passedCourses = Array.from(document.querySelectorAll(".course.completed"))
     .map(div => div.dataset.code);
