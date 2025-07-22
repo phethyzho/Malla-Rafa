@@ -1,7 +1,7 @@
 const TOTAL_CREDITS = 300; 
 let approvedCredits = 0;
 
-const courses = const courses = [
+const courses = [
   // --- SEMESTRE 1 ---
   { code: "OBST1010", name: "Introducción a la Profesión Obstetricia", credits: 4, semester: 1, prereqs: [] },
   { code: "OBST1011", name: "Histobiología", credits: 6, semester: 1, prereqs: [] },
