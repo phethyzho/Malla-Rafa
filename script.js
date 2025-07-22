@@ -151,15 +151,25 @@ function saveProgress() {
 
 function loadProgress() {
   const saved = JSON.parse(localStorage.getItem("passedCourses")) || [];
+
+  // Primero marcamos todos como completados
   saved.forEach(code => {
     const div = document.querySelector(`[data-code="${code}"]`);
-    if (div && !div.classList.contains("locked")) {
+    if (div) {
       div.classList.add("completed");
-      approvedCredits += parseInt(div.dataset.credits);
     }
   });
-  updateProgress();
+
+  // Luego desbloqueamos los cursos dependientes
   unlockCourses();
+
+  // Recalculamos créditos aprobados
+  approvedCredits = saved.reduce((total, code) => {
+    const course = courses.find(c => c.code === code);
+    return course ? total + course.credits : total;
+  }, 0);
+
+  updateProgress();
 }
 
 loadProgress(); 
