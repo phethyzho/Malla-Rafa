@@ -99,17 +99,18 @@ semesters.forEach(sem => {
       div.classList.add("locked");
     }
 
-    div.addEventListener("click", () => {
-      if (div.classList.contains("locked")) return;
+div.addEventListener("click", () => {
+  if (div.classList.contains("locked")) return;
 
-      div.classList.toggle("completed");
+  div.classList.toggle("completed");
 
-      const isApproved = div.classList.contains("completed");
-      approvedCredits += isApproved ? course.credits : -course.credits;
+  const isApproved = div.classList.contains("completed");
+  approvedCredits += isApproved ? course.credits : -course.credits;
 
-      updateProgress();
-      unlockCourses();
-    });
+  updateProgress();
+  unlockCourses();
+  saveProgress(); // 👈 esta línea guarda los cambios
+});
 
     col.appendChild(div);
   });
@@ -161,3 +162,4 @@ function loadProgress() {
   unlockCourses();
 }
 
+loadProgress(); 
