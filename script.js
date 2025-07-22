@@ -1,4 +1,4 @@
-const TOTAL_CREDITS = 300; // según el plan
+const TOTAL_CREDITS = 300; 
 let approvedCredits = 0;
 
 const courses = [
