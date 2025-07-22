@@ -140,5 +140,23 @@ function updateProgress() {
     (approvedCredits / TOTAL_CREDITS) * 100
   ).toFixed(1);
 }
-
 unlockCourses();
+function saveProgress() {
+  const passedCourses = Array.from(document.querySelectorAll(".course.completed"))
+    .map(div => div.dataset.code);
+  localStorage.setItem("passedCourses", JSON.stringify(passedCourses));
+}
+
+function loadProgress() {
+  const saved = JSON.parse(localStorage.getItem("passedCourses")) || [];
+  saved.forEach(code => {
+    const div = document.querySelector(`[data-code="${code}"]`);
+    if (div && !div.classList.contains("locked")) {
+      div.classList.add("completed");
+      approvedCredits += parseInt(div.dataset.credits);
+    }
+  });
+  updateProgress();
+  unlockCourses();
+}
+
