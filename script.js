@@ -64,8 +64,49 @@ const courses = [
     credits: 8,
     semester: 2,
     prereqs: []
+  },
+  {
+    code: "OBST1030",
+    name: "Proceso Patológicos y Farmacológicos",
+    credits: 6,
+    semester: 3,
+    prereqs: ["QUIM1006"]
+  },
+  {
+    code: "OBST1031",
+    name: "Embriología",
+    credits: 4,
+    semester: 3,
+    prereqs: []
+  },
+  {
+    code: "OBST1032",
+    name: "Procedimientos de Enfermería para Matronas/es I",
+    credits: 6,
+    semester: 3,
+    prereqs: ["OBST1020"]
+  },
+  {
+    code: "OBST1033",
+    name: "Anatomía Pélvica y Fetal",
+    credits: 4,
+    semester: 3,
+    prereqs: []
+  },
+  {
+    code: "EPBI1001",
+    name: "Epidiología y Bioestadística",
+    credits: 4,
+    semester: 3,
+    prereqs: []
+  },
+  {
+    code: "INGT1100",
+    name: "Inglés I",
+    credits: 4,
+    semester: 3,
+    prereqs: []
   }
-  // Continúa agregando más ramos según el PDF...
 ];
 
 const container = document.getElementById("grid-container");
